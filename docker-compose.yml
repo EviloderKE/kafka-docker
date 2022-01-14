@@ -3,7 +3,7 @@ services:
   zookeeper:
     image: wurstmeister/zookeeper
     ports:
-      - "21810:21810"
+      - "21810:2181"
 #    restart: unless-stopped
 
   kafka:
@@ -13,7 +13,7 @@ services:
     environment:
       DOCKER_API_VERSION: 1.22
       KAFKA_ADVERTISED_HOST_NAME: 192.168.33.108
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:21810
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 #    restart: unless-stopped
